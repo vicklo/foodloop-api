@@ -10,7 +10,7 @@ import { auth, requiredScopes } from 'express-oauth2-jwt-bearer';
 const host = config.host
 const port = config.port
 
-const allowedOrigins = ['http://localhost:4200','*'];
+const allowedOrigins = ['http://localhost:4200','http://localhost:9876'];
 const options: cors.CorsOptions = {
     origin: allowedOrigins
   };
