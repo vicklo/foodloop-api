@@ -1,20 +1,15 @@
 name: tslint
-
-on: push
-
+on: [push]
 jobs:
-  tslint:
-
+  job:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [17.x]
+    timeout-minutes: 3
     steps:
-    - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm run tslint
+      - uses: actions/checkout@v1
+      - name: Prepare
+        run: npm ci
+      - name: Lint
+        uses: mooyoul/tslint-actions@v1.1.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: '*.ts'
