@@ -7,24 +7,23 @@ const repository = myDataSource.getRepository("product");
 export class ProductService implements Iproduct
 {
      async  getAllProducts()
-    {   
+    {
         return repository.find()
     }
-    async getProduct(id: number)
+    async getProduct(productId: number)
     {
-        return repository.findOneBy({id:id})
+        return repository.findOneBy({id:productId})
     }
-     async postProduct(Product: Product)
-    {
-        console.log(Product)
-        return repository.save(Product)
-    }
-     async putProduct(Product:Product)
+     async postProduct(product: Product)
     {
         return repository.save(Product)
     }
-    async deleteProduct(id: number)
+     async putProduct(product:Product)
     {
-        return repository.delete({id:id})
+        return repository.save(product)
+    }
+    async deleteProduct(orderId: number)
+    {
+        return repository.delete({id:orderId})
     }
 }

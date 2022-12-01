@@ -15,27 +15,26 @@ export class CompanyController
     }
     async getCompany(req: Request,res: Response) {
         try{
-            return res.send(await service.getCompany(Number.parseInt(req.params.id)));
+            return res.send(await service.getCompany(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async postCompany(req: Request,res: Response) {
         try{
-            console.log(req.body)
             return res.send(await service.postCompany(req.body as Company));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async putCompany(req: Request,res: Response) {
         try{
             return res.send(await service.putCompany(req.body));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async deleteCompany(req: Request,res: Response) {
         try{
-            return res.send(await service.deleteCompany(parseInt(req.params.id)));
+            return res.send(await service.deleteCompany(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
 }

@@ -10,20 +10,20 @@ export class RoleService implements IRole
     {
         return repository.find()
     }
-    async getRole(id: number)
+    async getRole(roleId: number)
     {
-        return repository.findOneBy({id:id})
+        return repository.findOneBy({id:roleId})
     }
-     async postRole(Role: Role)
+     async postRole(role: Role)
     {
-        return repository.save(Role)
+        return repository.save(role)
     }
-     async putRole(Role:Role)
+     async putRole(role:Role)
     {
-        return repository.save(Role)
+        return repository.save(role)
     }
-    async deleteRole(id: number)
+    async deleteRole(roleId: number)
     {
-        return repository.delete({id:id})
+        return repository.delete({id:roleId})
     }
 }

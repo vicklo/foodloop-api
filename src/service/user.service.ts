@@ -14,16 +14,16 @@ export class UserService implements IUser
     {
         return repository.createQueryBuilder('u').innerJoinAndSelect('u.company','company').andWhere({authId:id}).getOne()
     }
-     async postUser(User: User)
+     async postUser(user: User)
     {
-        return repository.save(User)
+        return repository.save(user)
     }
-     async putUser(User:User)
+     async putUser(user:User)
     {
-        return repository.save(User)
+        return repository.save(user)
     }
-    async deleteUser(id: number)
+    async deleteUser(userId: number)
     {
-        return repository.delete({id:id})
+        return repository.delete({id:userId})
     }
 }

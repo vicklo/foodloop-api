@@ -10,20 +10,20 @@ export class CompanyService implements ICompany
     {
         return repository.find()
     }
-    async getCompany(id: number)
+    async getCompany(companyId: number)
     {
-        return repository.findOneBy({id:id})
+        return repository.findOneBy({id:companyId})
     }
-     async postCompany(Company: Company)
+     async postCompany(company: Company)
     {
-        return repository.save(Company)
+        return repository.save(company)
     }
-     async putCompany(Company:Company)
+     async putCompany(company:Company)
     {
-        return repository.save(Company)
+        return repository.save(company)
     }
-    async deleteCompany(id: number)
+    async deleteCompany(companyId: number)
     {
-        return repository.delete({id:id})
+        return repository.delete({id:companyId})
     }
 }

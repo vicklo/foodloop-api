@@ -3,7 +3,7 @@ import log from "../logger";
 import { Company } from "../model/company.entity";
 import { CompanyService } from '../service/company.service';
 
-export class mainController
+export class MainController
 {
 
     async Welcome(req: Request,res: Response) {

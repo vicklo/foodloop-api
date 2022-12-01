@@ -1,13 +1,13 @@
 import { DataSource } from "typeorm"
 import config from '../settings';
 
-const host = config.dbHost
-const port = config.dbPort
+const localDbHost = config.dbHost
+const localDbPort = config.dbPort
 
 export const myDataSource = new DataSource({
     type: "mysql",
-    host: host,
-    port: port,
+    host: localDbHost,
+    port: localDbPort,
     username: "root",
     password: "",
     database: "foodloop",

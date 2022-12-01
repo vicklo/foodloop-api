@@ -15,27 +15,26 @@ export class OrderController
     }
     async getOrder(req: Request,res: Response) {
         try{
-            return res.send(await service.getOrder(Number.parseInt(req.params.id)));
+            return res.send(await service.getOrder(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async postOrder(req: Request,res: Response) {
         try{
-            console.log(req.body)
             return res.send(await service.postOrder(req.body as Order));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async putOrder(req: Request,res: Response) {
         try{
             return res.send(await service.putOrder(req.body));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async deleteOrder(req: Request,res: Response) {
         try{
-            return res.send(await service.deleteOrder(parseInt(req.params.id)));
+            return res.send(await service.deleteOrder(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
 }

@@ -17,25 +17,24 @@ export class UserController
         try{
             return res.send(await service.getUser(req.params.id));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async postUser(req: Request,res: Response) {
         try{
-            console.log(req.body)
             return res.send(await service.postUser(req.body as User));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async putUser(req: Request,res: Response) {
         try{
             return res.send(await service.putUser(req.body));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async deleteUser(req: Request,res: Response) {
         try{
-            return res.send(await service.deleteUser(parseInt(req.params.id)));
+            return res.send(await service.deleteUser(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
 }

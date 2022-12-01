@@ -15,27 +15,26 @@ export class ProductController
     }
     async getProduct(req: Request,res: Response) {
         try{
-            return res.send(await service.getProduct(Number.parseInt(req.params.id)));
+            return res.send(await service.getProduct(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async postProduct(req: Request,res: Response) {
         try{
-            console.log(req.body)
             return res.send(await service.postProduct(req.body as Product));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async putProduct(req: Request,res: Response) {
         try{
             return res.send(await service.putProduct(req.body));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async deleteProduct(req: Request,res: Response) {
         try{
-            return res.send(await service.deleteProduct(parseInt(req.params.id)));
+            return res.send(await service.deleteProduct(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
 }

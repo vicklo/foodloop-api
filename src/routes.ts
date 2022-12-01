@@ -4,11 +4,11 @@ import { CompanyController } from "./controller/company.controller";
 import { OrderController } from "./controller/order.controller";
 import { RoleController } from "./controller/role.controller";
 import { UserController } from "./controller/user.controller";
-import { mainController } from "./controller/main.controller";
+import { MainController } from "./controller/main.controller";
 
 export default function (app: Express, jwt : Handler)
 {
-    const mainCon: mainController = new mainController();
+    const mainCon: MainController = new MainController();
     app.get("/",mainCon.Welcome);
 
     const companyCon = new CompanyController();

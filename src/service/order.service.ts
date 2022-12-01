@@ -10,20 +10,20 @@ export class OrderService implements IOrder
     {
         return repository.find()
     }
-    async getOrder(id: number)
+    async getOrder(orderId: number)
     {
-        return repository.findOneBy({id:id})
+        return repository.findOneBy({id:orderId})
     }
-     async postOrder(Order: Order)
+     async postOrder(order: Order)
     {
-        return repository.save(Order)
+        return repository.save(order)
     }
-     async putOrder(Order:Order)
+     async putOrder(order:Order)
     {
-        return repository.save(Order)
+        return repository.save(order)
     }
-    async deleteOrder(id: number)
+    async deleteOrder(orderId: number)
     {
-        return repository.delete({id:id})
+        return repository.delete({id:orderId})
     }
 }

@@ -15,27 +15,26 @@ export class RoleController
     }
     async getRole(req: Request,res: Response) {
         try{
-            return res.send(await service.getRole(Number.parseInt(req.params.id)));
+            return res.send(await service.getRole(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async postRole(req: Request,res: Response) {
         try{
-            console.log(req.body)
             return res.send(await service.postRole(req.body as Role));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async putRole(req: Request,res: Response) {
         try{
             return res.send(await service.putRole(req.body));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
     async deleteRole(req: Request,res: Response) {
         try{
-            return res.send(await service.deleteRole(parseInt(req.params.id)));
+            return res.send(await service.deleteRole(req.params.id as any as number));
         }
-        catch(e){console.log(e)}
+        catch(e){return e}
     }
 }
