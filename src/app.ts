@@ -26,7 +26,7 @@ const app = express();
 app.use(cors(options));
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
-myDataSourceProd.initialize().then(() => {log.info("Database connected")}).catch((error) => log.info(error))
+myDataSource.initialize().then(() => {log.info("Database connected")}).catch((error) => log.info(error))
 
 app.listen(port,host, () => {
     log.info(`server listing to http://${host}:${port}`);
