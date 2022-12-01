@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npx nodemon src/app.ts"
+    "dev": "npx nodemon src/app.ts",
+    "tslint": "tslint -c tslint.json 'src/**/*.ts'",
+    "test": ""
   },
   "author": "",
   "license": "ISC",
