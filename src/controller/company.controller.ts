@@ -4,6 +4,7 @@ import { Company } from "../model/company.entity";
 import { CompanyService } from '../service/company.service';
 
 const service = new CompanyService();
+
 export class CompanyController
 {
 

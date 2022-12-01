@@ -15,6 +15,6 @@ export class Product extends Base
     @ManyToOne(type => Company)
     company: Company
 
-    @Column({default:1})
+    @Column({type: "decimal",precision: 5, scale: 2 , default: 0})
     price: number
 }

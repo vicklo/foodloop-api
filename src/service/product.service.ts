@@ -8,6 +8,7 @@ export class ProductService implements Iproduct
 {
      async  getAllProducts()
     {
+
         return repository.find()
     }
     async getProduct(productId: number)
@@ -16,7 +17,7 @@ export class ProductService implements Iproduct
     }
      async postProduct(product: Product)
     {
-        return repository.save(Product)
+        return repository.save(product)
     }
      async putProduct(product:Product)
     {
