@@ -5,6 +5,7 @@ import { OrderController } from "./controller/order.controller";
 import { RoleController } from "./controller/role.controller";
 import { UserController } from "./controller/user.controller";
 import { MainController } from "./controller/main.controller";
+import {ThreadController} from "./controller/thread.controller"
 
 export default function (app: Express, jwt : Handler)
 {
@@ -50,4 +51,9 @@ export default function (app: Express, jwt : Handler)
     app.post("/user",userCon.postUser);
     app.put("/user",userCon.putUser);
     app.delete("/user/:id",userCon.deleteUser);
+
+    const threadConn = new ThreadController();
+
+    app.get("/thread/blocking",threadConn.Blocking);
+    app.get("/thread/nonblocking",threadConn.nonBlocking);
 }
