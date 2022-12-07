@@ -8,12 +8,6 @@ export class UserService implements IUser
 {
      async  getAllUsers()
     {
-        let counter = 0;
-        for (let i = 0; i < 20000; i++) {
-            counter++;
-            // tslint:disable-next-line:no-console
-            console.log(counter)
-        }
         return repository.find()
     }
     async getUser(id: string)
@@ -22,7 +16,6 @@ export class UserService implements IUser
     }
      async postUser(user: User)
     {
-        console.log(user)
         return repository.save(user)
     }
      async putUser(user:User)
