@@ -21,7 +21,7 @@ export class UserController
     }
     async postUser(req: Request,res: Response) {
         try{
-            return res.send(await service.postUser(req.body as User));
+            return res.send(await service.postUser(req.body.data as User));
         }
         catch(e){return e}
     }

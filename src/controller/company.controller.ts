@@ -7,7 +7,6 @@ const service = new CompanyService();
 
 export class CompanyController
 {
-
     async getAllCompanys(req: Request,res: Response) {
         try{
             return res.send(await service.getAllCompanys());

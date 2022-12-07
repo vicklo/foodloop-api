@@ -3,10 +3,9 @@ import config from '../settings';
 import log from './logger';
 import routes from './routes';
 import { myDataSource } from "./appDataSource"
-import { myDataSource as myDataSourceProd } from "./appDataSource.prod"
 import cors from 'cors';
 
-import { auth, requiredScopes } from 'express-oauth2-jwt-bearer';
+import { auth } from 'express-oauth2-jwt-bearer';
 
 const host = config.host
 const port = config.port

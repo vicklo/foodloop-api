@@ -1,4 +1,4 @@
-import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, ManyToOne, OneToMany } from "typeorm";
 import { Base } from "./BaseEntity";
 import { Company } from "./company.entity";
 import { Order } from "./order.entity";
@@ -7,7 +7,7 @@ import { Role } from "./role.entity";
 @Entity()
 export class User extends Base
 {
-
+    // change base entity to something that kaes authid primary key
     @Column()
     authId: string
 
