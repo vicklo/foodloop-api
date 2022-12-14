@@ -12,7 +12,7 @@ export class Product extends Base
     @Column()
     description: string
 
-    @ManyToOne(type => Company)
+    @ManyToOne(type => Company,{onDelete:"CASCADE"})
     company: Company
 
     @Column({type: "decimal",precision: 5, scale: 2 , default: 0})

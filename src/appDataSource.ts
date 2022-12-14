@@ -12,7 +12,7 @@ export const myDataSource = new DataSource({
     password: "",
     database: "foodloop",
     entities: ["src/model/*.ts"],
-    logging: true,
+    logging: false,
     synchronize: true,
 })
 

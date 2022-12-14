@@ -12,7 +12,7 @@ export const myDataSource =  new DataSource({
     password: config.prodDbPass,
     database: config.prodDb,
     entities: ["src/model/*.ts"],
-    logging: true,
+    logging: false,
     synchronize: true,
 })
 
