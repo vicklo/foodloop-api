@@ -6,7 +6,6 @@ import { User } from "./user.entity";
 @Entity()
 export class Order extends Base
 {
-
     @Column()
     status: string
 
@@ -17,7 +16,7 @@ export class Order extends Base
     user: User
 
     @Column()
-    timeOrdered: Date
+    timeOrdered: string
 
     @ManyToMany(() => Product,{cascade:true})
     @JoinTable()

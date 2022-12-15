@@ -5,9 +5,8 @@ import { Company } from "./company.entity";
 @Entity()
 export class Product extends Base
 {
-
     @Column()
-    name: string
+    name: string;
 
     @Column()
     description: string
