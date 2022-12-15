@@ -1,10 +1,12 @@
+// vite.config.ts
 import { defineConfig } from 'vitest/config'
-import tsconfigPaths from 'vite-tsconfig-paths'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
-  plugins: [tsconfigPaths()],
-  test: {
-    includeSource: ['src/model/*.ts','/api/tsconfig.json'],
-
-  },
+  plugins: [
+    AutoImport({
+      imports: ['vitest'],
+      dts: true, // generate TypeScript declaration
+    }),
+  ],
 })
