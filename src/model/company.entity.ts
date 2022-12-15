@@ -9,13 +9,13 @@ export class Company extends Base
     @Column()
     name: string
 
-    @OneToOne(type => User)
+    @OneToOne(type => User,{onDelete:"CASCADE"})
     owner:User
 
-    @OneToMany(type => User, u => u.company)
+    @OneToMany(type => User, u => u.company,{cascade:true})
     users: User[]
 
-    @OneToMany(type => Product, p => p.company)
+    @OneToMany(type => Product, p => p.company,{cascade:true})
     products: Product[]
 
     @Column()

@@ -1,9 +1,10 @@
 import { Request, Response } from "express";
+import { myDataSource } from "../appDataSource";
 import log from "../logger";
 import { Company } from "../model/company.entity";
 import { CompanyService } from '../service/company.service';
 
-const service = new CompanyService();
+const service = new CompanyService(myDataSource.getRepository("Company"));
 
 export class CompanyController
 {

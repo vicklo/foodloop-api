@@ -16,10 +16,21 @@ export class RoleService implements IRole
     }
      async postRole(role: Role)
     {
+        if(!role.name)
+            return Promise.reject("Name is missing")
+        if(!role.roleDiscription)
+            return Promise.reject("Role description is missing")
         return repository.save(role)
     }
      async putRole(role:Role)
     {
+        if(!role.id)
+            return Promise.reject("Id is missing")
+        if(!role.name)
+            return Promise.reject("Name is missing")
+        if(!role.roleDiscription)
+            return Promise.reject("Role description is missing")
+
         return repository.save(role)
     }
     async deleteRole(roleId: number)

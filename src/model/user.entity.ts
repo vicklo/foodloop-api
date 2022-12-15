@@ -17,13 +17,13 @@ export class User extends Base
     @Column()
     lastName: string
 
-    @ManyToOne(type => Company)
+    @ManyToOne(type => Company,{onDelete:"SET NULL"})
     company: Company
 
-    @OneToMany(type => Order, o => o.user)
+    @OneToMany(type => Order, o => o.user,{cascade:true})
     orders: Order[]
 
-    @ManyToMany(() => Role)
+    @ManyToMany(() => Role,{cascade:true})
     @JoinTable()
     roles: Role[]
 
