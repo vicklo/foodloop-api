@@ -4,7 +4,7 @@ import log from "../logger";
 import { Company } from "../model/company.entity";
 import { CompanyService } from '../service/company.service';
 
-const service = new CompanyService(myDataSource.getRepository("Company"));
+const service = new CompanyService();
 
 export class CompanyController
 {

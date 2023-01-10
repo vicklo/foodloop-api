@@ -2,7 +2,7 @@ import express, { Handler } from 'express';
 import config from '../settings';
 import log from './logger';
 import routes from './routes';
-import { myDataSource } from "./appDataSource.mock"
+import { myDataSource } from "./appDataSource"
 import cors from 'cors';
 
 import { auth } from 'express-oauth2-jwt-bearer';

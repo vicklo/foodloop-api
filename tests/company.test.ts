@@ -1,13 +1,32 @@
-import { Repository } from "typeorm";
 import {describe, it, expect, beforeEach} from "vitest"
-import { myDataSource } from "../src/appDataSource.mock";
 import { CompanyService } from "../src/service/company.service"
-import log from "../src/logger";
 import { Company } from "../src/model/company.entity";
+import { createConnection } from "typeorm";
+import { User } from "../src/model/user.entity";
+import { Role } from "../src/model/role.entity";
+import { Order } from "../src/model/order.entity";
+import { Product } from "../src/model/product.entity";
 
-const service = new CompanyService()
+let service = new CompanyService()
 describe('Company', async () => {
+  beforeEach(async () =>
+  {
+    const con = await createConnection({
+      type: "sqlite",
+      database: ":memory:",
+      dropSchema: true,
+      entities: [Company,User,Role,Order,Product],
+      synchronize: true,
+      logging: false,
+    });
+    service = new CompanyService(con.getRepository('Company'))
+  })
+
+
+
+
   it("Should get error adress",async () => {
+
     let error: string = "";
     await service.postCompany(
       {

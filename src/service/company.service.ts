@@ -1,18 +1,23 @@
 import {myDataSource} from '../appDataSource'
 import { Company } from '../model/company.entity'
 import { ICompany } from '../interface/Icompany'
+import { ObjectLiteral, Repository } from 'typeorm';
 
 
-const repository = myDataSource.getRepository("Company");
 export class CompanyService implements ICompany
 {
+    private repository;
+    constructor(rep: Repository<ObjectLiteral> = myDataSource.getRepository("Company"))
+    {
+        this.repository = rep
+    }
      async  getAllCompanys()
     {
-        return repository.find()
+        return this.repository.find()
     }
     async getCompany(companyId: number)
     {
-        return repository.findOneBy({id:companyId})
+        return this.repository.findOneBy({id:companyId})
     }
      async postCompany(company: Company)
     {
@@ -24,7 +29,7 @@ export class CompanyService implements ICompany
             return Promise.reject("Type is missing")
         if(!company.postCode)
             return Promise.reject("Postcode is missing")
-        return repository.save(company)
+        return this.repository.save(company)
     }
      async putCompany(company:Company)
     {
@@ -39,10 +44,10 @@ export class CompanyService implements ICompany
         if(!company.postCode)
             return Promise.reject("Postcode is missing")
 
-        return repository.save(company)
+        return this.repository.save(company)
     }
     async deleteCompany(companyId: number)
     {
-        return repository.delete({id:companyId})
+        return this.repository.delete({id:companyId})
     }
 }
