@@ -15,7 +15,7 @@ export class ProductService implements Iproduct
     {
         return repository.findOneBy({id:productId})
     }
-     async postProduct(product: Product)
+    async postProduct(product: Product)
     {
         if(!product.name)
             return Promise.reject("Name is missing")

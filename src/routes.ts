@@ -35,6 +35,7 @@ export default function (app: Express, jwt : Handler)
     app.post("/order",OrderCon.postOrder);
     app.put("/order",OrderCon.putOrder);
     app.delete("/order/:id",OrderCon.deleteOrder);
+    app.get("/order/company/:id",OrderCon.getCompanyOrder);
 
     const roleCon = new RoleController();
 

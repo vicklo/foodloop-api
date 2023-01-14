@@ -1,12 +1,12 @@
-import { ConnectionOptions } from 'typeorm';
+import {  DataSource } from 'typeorm';
 
-export const myDataSource: ConnectionOptions = {
+export const myDataSource = new DataSource({
   type: 'sqlite',
   database: ':memory:',
   synchronize: true,
-  logging: false,
+  logging: true,
   entities: [
-    'src/entity/**/*.ts'
+    "src/model/*.ts"
   ],
   migrations: [
     'src/migration/**/*.ts'
@@ -14,4 +14,4 @@ export const myDataSource: ConnectionOptions = {
   subscribers: [
     'src/subscriber/**/*.ts'
   ]
-};
+});

@@ -16,4 +16,7 @@ export class Product extends Base
 
     @Column({type: "decimal",precision: 5, scale: 2 , default: 0})
     price: number
+
+    @Column({default:"https://t4.ftcdn.net/jpg/00/89/55/15/360_F_89551596_LdHAZRwz3i4EM4J0NHNHy2hEUYDfXc0j.jpg"})
+    url:string
 }

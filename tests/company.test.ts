@@ -7,23 +7,19 @@ import { Role } from "../src/model/role.entity";
 import { Order } from "../src/model/order.entity";
 import { Product } from "../src/model/product.entity";
 
-let service = new CompanyService()
+const service = new CompanyService()
 describe('Company', async () => {
   beforeEach(async () =>
   {
-    const con = await createConnection({
-      type: "sqlite",
-      database: ":memory:",
-      dropSchema: true,
-      entities: [Company,User,Role,Order,Product],
-      synchronize: true,
-      logging: false,
-    });
-    service = new CompanyService(con.getRepository('Company'))
+    // const con = await createConnection({
+    //   type: "sqlite",
+    //   database: ":memory:",
+    //   dropSchema: true,
+    //   entities: [Company,User,Role,Order,Product],
+    //   synchronize: true,
+    //   logging: false,
+    // });
   })
-
-
-
 
   it("Should get error adress",async () => {
 

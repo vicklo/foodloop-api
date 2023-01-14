@@ -37,4 +37,10 @@ export class OrderController
         }
         catch(e){return e}
     }
+    async getCompanyOrder(req: Request,res: Response) {
+        try{
+            return res.send(await service.getCompanyOrder(req.params.id as any as number));
+        }
+        catch(e){return e}
+    }
 }

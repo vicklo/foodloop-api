@@ -1,6 +1,7 @@
 import {myDataSource} from '../appDataSource'
 import { Order } from '../model/order.entity'
 import { IOrder } from '../interface/Iorder'
+import { json } from 'express';
 
 
 const repository = myDataSource.getRepository("Order");
@@ -14,6 +15,16 @@ export class OrderService implements IOrder
     {
         return repository.findOneBy({id:orderId})
     }
+
+    async getCompanyOrder(companyId: number)
+    {
+        return repository.createQueryBuilder('o')
+        .innerJoinAndSelect("o.company",'company')
+        .innerJoinAndSelect("o.products",'products')
+        .innerJoinAndSelect("o.user",'user')
+        .andWhere(`company.id = ${companyId}`).getMany()
+    }
+
      async postOrder(order: Order)
     {
         if(!order.user)
@@ -22,7 +33,7 @@ export class OrderService implements IOrder
             order.status = "In progress"
         if(!order.price)
             order.price = 0;
-        order.timeOrdered = Date.toString()
+
         return repository.save(order)
     }
      async putOrder(order:Order)
